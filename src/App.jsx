@@ -3,28 +3,48 @@ import { useState, useEffect } from 'react';
 import * as BookAPI from './BooksAPI.js';
 import BookShelf from './Bookshelf.jsx';
 import SearchBooks from './SearchBooks';
-
+import Spinners from './Spinners.jsx';
 function App() {
 	const [showSearchPage, setShowSearchpage] = useState(false);
 	const [books, setBooks] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		BookAPI.getAll().then((books) => {
-			setBooks(books);
-		});
+		const fetchBooks = async () => {
+			try {
+				const books = await BookAPI.getAll();
+				setBooks(books);
+			} catch (error) {
+				console.error('error fetching books', error);
+			} finally {
+				setLoading(false);
+			}
+		};
+		fetchBooks();
 	}, []);
-
-	const updateBookShelf = (book, shelf) => {
-		BookAPI.update(book, shelf).then(() => {
-			setBooks(books.map((b) => (b.id === book.id ? { ...b, shelf } : b)));
-		});
+	// updating the shelf
+	const updateBookShelf = async (book, shelf) => {
+		try {
+			await BookAPI.update(book, shelf);
+			const newBookShelf = books.map((b) =>
+				b.id === book.id ? { ...b, shelf } : b
+			);
+			setBooks(newBookShelf);
+		} catch (error) {
+			console.error('error updating the book', error);
+		}
 	};
-
+	// closing the search page
+	const closeSearchPage = () => {
+		setShowSearchpage(false);
+	};
 	return (
 		<div className="app">
-			{showSearchPage ? (
+			{loading ? (
+				<Spinners />
+			) : showSearchPage ? (
 				<SearchBooks
-					onClose={() => setShowSearchpage(false)}
+					onClose={closeSearchPage}
 					onUpdateShelf={updateBookShelf}
 				/>
 			) : (
