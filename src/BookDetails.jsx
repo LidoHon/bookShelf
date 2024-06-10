@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as BookAPI from './BooksAPI.js';
 import Spinners from './Spinners.jsx';
-
+import { Link } from 'react-router-dom';
 const BookDetails = () => {
 	const { id } = useParams();
 	const [book, setBook] = useState(null);
@@ -56,15 +56,15 @@ const BookDetails = () => {
 			<p>Page Count: {book.pageCount}</p>
 			<p>
 				Preview Link:{' '}
-				<a href={book.previewLink} target="_blank" rel="noopener noreferrer">
+				<Link to={book.previewLink} target="_blank">
 					Preview
-				</a>
+				</Link>
 			</p>
 			<p>
 				Info Link:{' '}
-				<a href={book.infoLink} target="_blank" rel="noopener noreferrer">
+				<Link to={book.infoLink} target="_blank">
 					Info
-				</a>
+				</Link>
 			</p>
 		</div>
 	);

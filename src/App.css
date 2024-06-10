@@ -191,9 +191,10 @@ body,
 	max-width: 600px;
 	margin: 0 auto;
 	padding: 20px;
-	background-color: #f8f8f8;
+	background-color: #2e7d32;
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-top: 50px;
 }
 
 .book-details h1 {
@@ -220,5 +221,5 @@ body,
 	text-decoration: underline;
 }
 .description-link {
-	color: blue;
+	color: rgb(5, 17, 11);
 }

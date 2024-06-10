@@ -49,7 +49,7 @@ function Book({ book, onUpdateShelf }) {
 			</div>
 			{showDetail && (
 				<Link to={`/books/${id}`} className="see-more-link">
-					see more
+					Details
 				</Link>
 			)}
 
