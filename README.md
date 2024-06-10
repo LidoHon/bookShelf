@@ -7,8 +7,9 @@ BookShelf is a React-based application that allows users to search for books, vi
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
 - [API-stracture](#API-stracture)
+- [Contributing](#contributing)
+
 
 
 ## Installation
