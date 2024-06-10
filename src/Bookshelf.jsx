@@ -8,6 +8,7 @@ function Bookshelf({ title, books, onUpdateShelf }) {
 			<div className="bookshelf-books">
 				<ol className="books-grid">
 					{books.map((book) => (
+						// this is where the ol would go
 						<Book key={book.id} book={book} onUpdateShelf={onUpdateShelf} />
 					))}
 				</ol>

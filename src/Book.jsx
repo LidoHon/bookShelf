@@ -1,20 +1,34 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 function Book({ book, onUpdateShelf }) {
-	const { title, authors, imageLinks, shelf } = book;
-	const thumbnail = imageLinks
+	const { id, title, authors, imageLinks, shelf } = book;
+	const Thumbnail = imageLinks
 		? imageLinks.thumbnail
 		: 'https://via.placeholder.com/128x193?text=No%20Image';
+	const [showDetail, setShowDetail] = useState(false);
 
+	const handleMouseEnter = () => {
+		setShowDetail(true);
+	};
+
+	const handleMouseLeave = () => {
+		setTimeout(() => {
+			setShowDetail(false);
+		}, 5000);
+	};
 	return (
 		<div className="book">
-			<div className="book-top">
+			<div
+				className="book-top"
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
+			>
 				<div
 					className="book-cover"
 					style={{
 						width: 128,
 						height: 193,
-						backgroundImage: `url(${thumbnail})`,
+						backgroundImage: `url(${Thumbnail})`,
 					}}
 				></div>
 				<div className="book-shelf-changer">
@@ -33,6 +47,12 @@ function Book({ book, onUpdateShelf }) {
 					</select>
 				</div>
 			</div>
+			{showDetail && (
+				<Link to={`/books/${id}`} className="see-more-link">
+					see more
+				</Link>
+			)}
+
 			<div className="book-title">{title}</div>
 			<div className="book-authors">
 				{authors ? authors.join(', ') : 'Unknown Author'}

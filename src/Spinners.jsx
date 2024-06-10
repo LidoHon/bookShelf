@@ -7,7 +7,7 @@ const override = {
 const Spinners = (loading) => {
 	return (
 		<CircleLoader
-			color="#4338ca"
+			color="#2e7d32"
 			loading={loading}
 			cssOverride={override}
 			size={75}
