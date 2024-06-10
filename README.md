@@ -8,6 +8,7 @@ BookShelf is a React-based application that allows users to search for books, vi
 - [Usage](#usage)
 - [Features](#features)
 - [Contributing](#contributing)
+- [API-stracture](#API-stracture)
 
 
 ## Installation
@@ -48,7 +49,8 @@ BookShelf is a React-based application that allows users to search for books, vi
 - `Book.jsx`: Component representing a single book item with shelf management.
 - `BooksAPI.js`: API utility for fetching book data.
 - `Spinners.jsx`: Loading spinner component.
-APIs
+  
+## APIs
 The project uses a mock API (BooksAPI.js) to fetch book data. The available methods are:
 
 getAll(): Fetches all books.
