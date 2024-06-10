@@ -7,10 +7,8 @@ BookShelf is a React-based application that allows users to search for books, vi
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [API-stracture](#API-stracture)
+- [APIs](#apis)
 - [Contributing](#contributing)
-
-
 
 ## Installation
 
@@ -33,7 +31,7 @@ BookShelf is a React-based application that allows users to search for books, vi
     ```sh
     npm run dev
     ```
-2. Open your browser and navigate to `http://localhost:5173` to view the application.
+2. Open your browser and navigate to `http://localhost:3000` to view the application.
 
 ## Features
 
@@ -41,6 +39,15 @@ BookShelf is a React-based application that allows users to search for books, vi
 - **Search Functionality**: Search for books and add them to your shelves.
 - **Book Details**: View detailed information about each book, including the title, authors, publisher, published date, description, categories, language, and page count.
 - **Responsive Design**: The application is designed to be responsive and works well on various devices.
+
+## APIs
+
+The project uses a mock API (`BooksAPI.js`) to fetch book data. The available methods are:
+
+- **`getAll()`**: Fetches all books.
+- **`get(id)`**: Fetches a single book by its ID.
+- **`update(book, shelf)`**: Updates the shelf of a book.
+- **`search(query)`**: Searches for books based on a query.
 
 ## Project Structure
 
@@ -50,14 +57,6 @@ BookShelf is a React-based application that allows users to search for books, vi
 - `Book.jsx`: Component representing a single book item with shelf management.
 - `BooksAPI.js`: API utility for fetching book data.
 - `Spinners.jsx`: Loading spinner component.
-  
-## APIs
-The project uses a mock API (BooksAPI.js) to fetch book data. The available methods are:
-
-getAll(): Fetches all books.
-get(id): Fetches a single book by its ID.
-update(book, shelf): Updates the shelf of a book.
-search(query): Searches for books based on a query.
 
 ## Contributing
 
@@ -68,6 +67,4 @@ Contributions are welcome! Please follow these steps:
 3. Commit your changes (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature/your-feature-name`).
 5. Open a pull request.
-
-
 
